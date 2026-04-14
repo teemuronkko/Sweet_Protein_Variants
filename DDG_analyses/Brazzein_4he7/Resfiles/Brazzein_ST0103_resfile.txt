@@ -1,0 +1,9 @@
+total 7
+7
+K 5 R
+Y 8 F
+Y 11 F
+V 13 T
+A 19 S
+H 31 N
+G 35 A

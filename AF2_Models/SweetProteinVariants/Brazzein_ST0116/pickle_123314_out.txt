@@ -1,0 +1,23 @@
+>> Job with SLURM array id 21 started at: Thu Sep  7 08:46:53 CEST 2023
+   On Machine:     ilfgridgpun02fl.unicph.domain
+   In directory:   /projects/ilfgrid/people/pqh443/AF2/Scripts
+
+
+>> ****** Checking input for Brazzein_ST0116 ******
+
+>> Linking precomputed MSAs for Brazzein_ST0116: 
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/uniref90_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/uniref90_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/uniprot_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/uniprot_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/mgnify_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/mgnify_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/bfd_uniref_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/bfd_uniclust_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/Brazzein_ST0116/pdb_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0116/msas/pdb_hits.sto
+>> =======> All required MSAs were found for Brazzein_ST0116.
+
+>> ***** Creating pickle file for Brazzein_ST0116 *****
+>> Launching AF2 for Brazzein_ST0116
+>>
+
+>> Job finished at: Thu Sep  7 08:48:24 CEST 2023
+
+>> Runtime: 91 s

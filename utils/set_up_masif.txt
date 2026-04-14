@@ -1,0 +1,12 @@
+export LD_LIBRARY_PATH=/projects/ilfgrid/apps/apbs-1.5/lib/
+export APBS_BIN=/projects/ilfgrid/apps/apbs-1.5/bin/apbs
+export MULTIVALUE_BIN=/projects/ilfgrid/apps/apbs-1.5/share/apbs/tools/bin/multivalue
+export PDB2PQR_BIN=/projects/ilfgrid/apps/masif/masif-env/bin/pdb2pqr
+export PATH=$PATH:/projects/ilfgrid/apps/masif/masif-env/bin/reduce
+export REDUCE_HET_DICT=/projects/ilfgrid/apps/masif/reduce_wwPDB_het_dict.txt
+export MSMS_BIN=/projects/ilfgrid/apps/msms/msms.x86_64Linux2.2.6.1.staticgcc
+export PDB2XYZRN=/projects/ilfgrid/apps/msms/pdb_to_xyzrn
+
+# MSMS: Change "nawk" to "awk" in pdb_to_xyzr and pdb_to_xyzrn 
+# ln /projects/ilfgrid/apps/masif/masif-env/lib/libtinfow.so.6.4 /projects/ilfgrid/apps/apbs-1.5/lib/libtinfo.so.5
+# ln /projects/ilfgrid/apps/masif/masif-env/lib/libreadline.so.7.0 /projects/ilfgrid/apps/apbs-1.5/lib/libreadline.so.6

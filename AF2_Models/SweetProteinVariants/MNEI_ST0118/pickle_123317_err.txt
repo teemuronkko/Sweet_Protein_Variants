@@ -1,0 +1,39 @@
+Loaded miniconda shell environment for bash
+I0907 08:47:39.240159 140192480945984 templates.py:857] Using precomputed obsolete pdbs /projects/ilfgrid/data/alphafold-genetic-databases/pdb_mmcif/obsolete.dat.
+I0907 08:47:39.450093 140192480945984 xla_bridge.py:353] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0907 08:47:41.822122 140192480945984 xla_bridge.py:353] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Host CUDA Interpreter
+I0907 08:47:41.822667 140192480945984 xla_bridge.py:353] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+I0907 08:47:41.822808 140192480945984 xla_bridge.py:353] Unable to initialize backend 'plugin': xla_extension has no attributes named get_plugin_device_client. Compile TensorFlow with //tensorflow/compiler/xla/python:enable_plugin_device set to true (defaults to false) to enable this.
+I0907 08:47:46.135298 140192480945984 run_alphafold.py:395] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I0907 08:47:46.136578 140192480945984 run_alphafold.py:412] Using random seed 1780388092439659142 for the data pipeline
+I0907 08:47:46.137165 140192480945984 run_alphafold.py:161] Predicting MNEI_ST0118
+W0907 08:47:46.138242 140192480945984 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0118/msas/uniref90_hits.sto
+W0907 08:47:46.140439 140192480945984 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0118/msas/mgnify_hits.sto
+I0907 08:47:46.142639 140192480945984 hhsearch.py:85] Launching subprocess "/projects/ilfgrid/apps/alphafold-2.3.1/AF_2.3.1_conda_env/bin/hhsearch -i /tmp/tmpankt6pu3/query.a3m -o /tmp/tmpankt6pu3/output.hhr -maxseq 1000000 -d /projects/ilfgrid/data/alphafold-genetic-databases/pdb70/pdb70"
+I0907 08:47:46.266515 140192480945984 utils.py:36] Started HHsearch query
+I0907 08:48:16.454622 140192480945984 utils.py:40] Finished HHsearch query in 30.188 seconds
+W0907 08:48:16.465145 140192480945984 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0118/msas/bfd_uniref_hits.a3m
+I0907 08:48:16.491390 140192480945984 templates.py:878] Searching for template for: GEWEIIDIGPFTQNLGCFAVDEENKIGQYGRLTCNKVIRPCMKKTIYENEGFREIKGYEYQLYVYASDKLFRADISEDYKTRGRKLLRFNGPVPPP
+I0907 08:48:16.611389 140192480945984 templates.py:912] Skipped invalid hit 2O9U_X Monellin chain B and Monellin; alternative conformations, 3-10 polyproline II; HET: SO4; 1.15A {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:48:18.434832 140192480945984 templates.py:912] Skipped invalid hit 1FUW_A MONELLIN; beta-sheet, alpha-helix, loop, PLANT PROTEIN; NMR {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:48:18.506181 140192480945984 templates.py:912] Skipped invalid hit 5KUX_A Designed influenza inhibitor protein HSB.2; Influenza, inhibitor, designed protein, cystatin; 1.8A {synthetic construct}, error: None, warning: None
+I0907 08:48:18.561975 140192480945984 templates.py:912] Skipped invalid hit 2Q33_B D-MONELLIN CHAIN A, D-MONELLIN CHAIN; ALPHA/BETA, ALL-D PROTEIN, DE NOVO; 1.8A {N/A}, error: None, warning: None
+I0907 08:48:18.692127 140192480945984 templates.py:912] Skipped invalid hit 5ELJ_A SUMO-ADHIRON-S2D5, Small ubiquitin-related modifier 1; Ubiquitin, Sumoylation, signaling protein; 1.983A {synthetic construct}, error: None, warning: None
+I0907 08:48:20.496900 140192480945984 templates.py:912] Skipped invalid hit 1EQK_A ORYZACYSTATIN-I; alpha and beta proteins, cystatin-like; NMR {Oryza sativa Japonica Group} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:48:20.584110 140192480945984 templates.py:912] Skipped invalid hit 5ELU_A SUMO-ADHIRON-S2D5, Small ubiquitin-related modifier 2; Ubiquitin, Sumoylation, signaling protein; HET: SO4; 2.35A {synthetic construct}, error: None, warning: None
+I0907 08:48:20.684104 140192480945984 templates.py:912] Skipped invalid hit 4MON_D MONELLIN; SWEET-TASTING PROTEIN, ORTHORHOMBIC CRYSTALS; 2.3A {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:48:20.845850 140192480945984 templates.py:912] Skipped invalid hit 3MON_C MONELLIN; SWEET-TASTING PROTEIN; 2.8A {Dioscoreophyllum cumminsii}, error: None, warning: None
+I0907 08:48:22.365858 140192480945984 templates.py:912] Skipped invalid hit 5KUY_G Hemagglutinin HA1, Hemagglutinin HA2, Designed; Influenza, inhibitor, complex, design, PROTEIN; HET: NAG, BMA; 2.598A {Influenza A virus (strain A/Hong Kong/1/1968 H3N2)}, error: None, warning: None
+I0907 08:48:22.366213 140192480945984 templates.py:912] Skipped invalid hit 2Q33_A D-MONELLIN CHAIN A, D-MONELLIN CHAIN; ALPHA/BETA, ALL-D PROTEIN, DE NOVO; 1.8A {N/A}, error: None, warning: None
+I0907 08:48:22.676182 140192480945984 templates.py:912] Skipped invalid hit 3IMA_D Papain (E.C.3.4.22.2), Cysteine proteinase inhibitor; CYSTATIN, TAROCYSTATIN, CECPI, PAPAIN, PHYTOCYSTATIN; HET: ACT; 2.03A {Carica papaya}, error: None, warning: None
+I0907 08:48:25.211858 140192480945984 templates.py:912] Skipped invalid hit 2L4V_A Cystatin; Cystatin, protease inhibitor, HYDROLASE INHIBITOR; NMR {Ananas comosus}, error: None, warning: None
+I0907 08:48:26.190204 140192480945984 templates.py:912] Skipped invalid hit 2KXG_A Aspartic protease inhibitor; SQAPI, protein, aspartic protease inhibitor; NMR {Cucurbita maxima}, error: None, warning: None
+I0907 08:48:26.377155 140192480945984 templates.py:912] Skipped invalid hit 5A0O_B ADHIRON; DE NOVO PROTEIN, AFFIMER; 2.73A {SYNTHETIC CONSTRUCT}, error: None, warning: None
+I0907 08:48:29.979203 140192480945984 templates.py:912] Skipped invalid hit 2MZV_A Cystatin; HYDROLASE INHIBITOR; NMR {Sesamum indicum}, error: None, warning: None
+I0907 08:48:30.252967 140192480945984 templates.py:912] Skipped invalid hit 3UL5_D Canecystatin-1; Cystatin, Defense, HYDROLASE INHIBITOR; HET: GOL; 2.3A {Saccharum officinarum}, error: None, warning: None
+I0907 08:48:30.380661 140192480945984 templates.py:912] Skipped invalid hit 3UL6_A Canecystatin-1; Cystatin, Defense, HYDROLASE INHIBITOR; HET: PE4; 2.63A {Saccharum officinarum}, error: None, warning: None
+I0907 08:48:30.406188 140192480945984 pipeline.py:239] Uniref90 MSA size: 5 sequences.
+I0907 08:48:30.406284 140192480945984 pipeline.py:240] BFD MSA size: 1093 sequences.
+I0907 08:48:30.406339 140192480945984 pipeline.py:241] MGnify MSA size: 1 sequences.
+I0907 08:48:30.406388 140192480945984 pipeline.py:242] Final (deduplicated) MSA size: 1097 sequences.
+I0907 08:48:30.406614 140192480945984 pipeline.py:244] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 0.

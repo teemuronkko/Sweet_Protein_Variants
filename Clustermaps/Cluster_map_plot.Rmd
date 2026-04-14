@@ -1,0 +1,352 @@
+---
+title: "Cluster_map"
+author: "Teemu Rönkkö"
+date: "2024-02-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pheatmap)
+library(patchwork)
+library(dplyr)
+library(tidyverse)
+library(devtools)
+library(ComplexHeatmap)
+library(grid)
+library(gridExtra)
+library(Hmisc)
+
+flattenCorrMatrix <- function(cormat, pmat) {
+  ut <- upper.tri(cormat)
+  data.frame(
+    row = rownames(cormat)[row(cormat)[ut]],
+    column = rownames(cormat)[col(cormat)[ut]],
+    cor  =(cormat)[ut],
+    p = pmat[ut]
+    )
+}
+
+# Helper function that makes the labels bold in the pheatmap 
+make_bold_names <- function(mat, rc_fun, rc_names) {
+  bold_names <- rc_fun(mat)
+  ids <- rc_names %>% match(rc_fun(mat))
+  ids %>%
+    walk(
+      function(i)
+        bold_names[i] <<-
+        bquote(bold(.(rc_fun(mat)[i]))) %>%
+        as.expression()
+    )
+  bold_names
+}
+```
+
+
+```{r}
+# Read variant df
+variants_df <- read.csv("/Users/pqh443/Documents/Git_projects/WP2_SweetProteinDiscovery/sweet_protein_variants/variant_df.csv", check.names = FALSE)
+
+prep_corr_matrix <- function(input_df, protein = NA){
+  
+  # Keep only rows for the input protein
+  if(!is.na(protein)){
+      input_df <- input_df[input_df$sweet_protein == protein,]
+  }
+  # Drop columns
+  drop = c("sweet_protein", "strain","protein", "plasmid", "mutation", "sequence", "ΔTm")
+  input_df = input_df[,!(names(input_df) %in% drop)]
+  
+  # Calculate correlation matrix using Spearman's rank correlation
+  corr_matrix <- rcorr(as.matrix(input_df), type = "spearman")
+  corr_matrix = data.frame(corr_matrix$r, check.names = FALSE)
+  
+  # Remove expression related features from the rows and keep the columns only
+  drop = c("Tm", "Yield", "OD600", "Growth rate")
+  corr_matrix = corr_matrix[,(names(corr_matrix) %in% drop)]
+  corr_matrix <- corr_matrix[!(rownames(corr_matrix) %in% drop), ]
+  corr_matrix$Group <- NA
+  
+  # List of MODLAMP features
+  modlamp_features <- c("Charge (at pH 7.4)", "Charge density", "Isoelectric point", "Instability index", "Aromaticity","Aliphatic index", "Boman index", "Hydrophobic ratio", "Sidechain bulkiness", "PEPCATS", "Amino acid polarity", "PPCALI", "Number of cysteines", "T-scale")
+  
+  # List of stability predictions 
+  stability_predictions <- c("ΔΔG (Rosetta)", "ΔΔG (DynaMut2)")
+  
+  # List of structural feature columns
+  structural_features <- c("Avg. surface charge", "Avg. surface hbond", "Avg. surface hydrophobicity", "Avg. pLDDT", "Total SASA", "Polar SASA", "Apolar SASA")
+  
+  # Make a group column that defines which type of feature each row represents
+  for (row in 1:nrow(corr_matrix)) {
+      index_name <- row.names(corr_matrix)[row]
+      if(index_name %in% modlamp_features) {
+          corr_matrix[row, "Group"] <- "Sequence features"
+      } else if(index_name %in% stability_predictions) {
+          corr_matrix[row, "Group"] <- "Stability predictors"
+      } else if (index_name %in% structural_features) {
+          corr_matrix[row, "Group"] <- "Structural features"
+      }
+  }
+
+  # Cluster the features within each feature group 
+  # Split dataframe based on group
+  df_list <- split(corr_matrix, corr_matrix$Group)
+  
+  # Perform hierarchical clustering within each group and reorder rows
+  df_reordered <- lapply(df_list, function(sub_df) {
+    
+    # Exclude the group column for clustering
+    data_for_clustering <- sub_df[, -which(names(sub_df) == "Group")]
+    
+    # Perform hierarchical clustering
+    hc <- hclust(dist(data_for_clustering))
+    
+    # Reorder the rows based on clustering
+    sub_df_reordered <- sub_df[hc$order, ]
+    
+    return(sub_df_reordered)
+  })
+  
+  # Combine the reordered dataframes back into a single dataframe
+  corr_matrix <- do.call(rbind, df_reordered)
+  rownames(corr_matrix) <- sub("^[^.]*\\.", "", rownames(corr_matrix))
+
+  return(corr_matrix)
+}
+
+# Drop Yield column
+variants_df <- variants_df[,!(names(variants_df) %in% "Yield")]
+
+# Create correlation matrices for each sweet protein at a time and for all of them at once
+corr_matrix_all = prep_corr_matrix(variants_df)
+corr_matrix_brazzein = prep_corr_matrix(variants_df, "Brazzein")
+corr_matrix_mnei = prep_corr_matrix(variants_df, "MNEI")
+corr_matrix_thaumatin = prep_corr_matrix(variants_df, "Thaumatin-II")
+
+# Get the order of the variables from the correlation matrix with all the data
+group_column <- subset(corr_matrix_all, select = Group)
+corr_matrix <- subset(corr_matrix_all, select = -Group)
+row.names(group_column) <- row.names(corr_matrix_all)
+
+# Drop group column 
+corr_matrix_brazzein <- subset(corr_matrix_brazzein, select = -Group)
+corr_matrix_mnei <- subset(corr_matrix_mnei, select = -Group)
+corr_matrix_thaumatin <- subset(corr_matrix_thaumatin, select = -Group)
+
+# Reorder rows 
+corr_matrix_brazzein <- corr_matrix_brazzein[rownames(corr_matrix_all),]
+corr_matrix_mnei <- corr_matrix_mnei[rownames(corr_matrix_all),]
+corr_matrix_thaumatin <- corr_matrix_thaumatin[rownames(corr_matrix_all),]
+```
+
+```{r}
+get_corr_mat <- function(input_df, protein){
+  # Keep only rows for the input protein
+  input_df <- input_df[input_df$sweet_protein == protein,]
+  
+  # Drop columns
+  drop = c("sweet_protein", "strain","protein", "plasmid", "mutation", "sequence", "ΔTm")
+  input_df = input_df[,!(names(input_df) %in% drop)]
+  
+  # Calculate correlation matrix and adjust p-values
+  corr_mat <- rcorr(as.matrix(input_df), type = "spearman")
+  
+  return(corr_mat)
+}
+
+clean_df <- function(df, drop){
+  # Drop columns and rows 
+  df = df[,(names(df) %in% drop)]
+  df <- df[!(rownames(df) %in% drop), ]
+  return(df)
+}
+
+correct_corr_mat <- function(input_df, protein){
+
+  # Calculate raw correlations 
+  corr_mat <- get_corr_mat(input_df, protein)
+  
+  # Get p-values from the returned object
+  pval_mat <- as.matrix(corr_mat$P)
+  pval_vector <- as.vector(corr_mat$P)
+  
+  # Adjust the p-values using the Benjamini & Hochberg method
+  adjusted_pvals <- p.adjust(pval_vector, method = "BH")
+  
+  # Reshape the adjusted p-values back into a matrix
+  adjusted_pval_matrix <- matrix(adjusted_pvals, nrow = nrow(pval_mat), ncol = ncol(pval_mat))
+  adjusted_pval_df <- data.frame(adjusted_pval_matrix, check.names = F)
+  
+  # Replace non-significant p-values with an empty string
+  r_matrix <- as.matrix(corr_mat$r)
+  r_matrix = data.frame(r_matrix, check.names = F)
+  r_matrix[adjusted_pval_df >= 0.05] = 0.0
+  
+  # Drop columns and rows 
+  r_df <- clean_df(r_matrix, c("Tm", "Yield", "OD600", "Growth rate"))
+
+  return(r_df)
+}
+
+thaumatin_sign_corr <- correct_corr_mat(variants_df, "Thaumatin-II")
+mnei_sign_corr <- correct_corr_mat(variants_df, "MNEI")
+brazzein_sign_corr <- correct_corr_mat(variants_df, "Brazzein")
+
+thaumatin_sign_corr <- thaumatin_sign_corr[rownames(corr_matrix_all),]
+brazzein_sign_corr <- brazzein_sign_corr[rownames(corr_matrix_all),]
+mnei_sign_corr <- mnei_sign_corr[rownames(corr_matrix_all),]
+
+thaumatin_unadjusted <- get_corr_mat(variants_df, "Thaumatin-II")
+thaumatin_unadjusted <- as.data.frame(thaumatin_unadjusted$P, check.names =F)
+thaumatin_unadjusted <- clean_df(thaumatin_unadjusted, c("Tm", "Yield", "OD600", "Growth rate"))
+thaumatin_unadjusted <- thaumatin_unadjusted[rownames(thaumatin_sign_corr), colnames(thaumatin_sign_corr)]
+
+mnei_unadjusted <- get_corr_mat(variants_df, "MNEI")
+mnei_unadjusted <- as.data.frame(mnei_unadjusted$P, check.names =F)
+mnei_unadjusted <- clean_df(mnei_unadjusted, c("Tm", "Yield", "OD600", "Growth rate"))
+mnei_unadjusted <- mnei_unadjusted[rownames(mnei_sign_corr), colnames(mnei_sign_corr)]
+
+brazzein_unadjusted <- get_corr_mat(variants_df, "Brazzein")
+brazzein_unadjusted <- as.data.frame(brazzein_unadjusted$P, check.names =F)
+brazzein_unadjusted <- clean_df(brazzein_unadjusted, c("Tm", "Yield", "OD600", "Growth rate"))
+brazzein_unadjusted <- brazzein_unadjusted[rownames(brazzein_sign_corr), colnames(brazzein_sign_corr)]
+
+print("Raw p-values:")
+print(paste("Thaumatin-II: ", thaumatin_unadjusted[thaumatin_sign_corr != 0]))
+print(paste("Brazzein: ", brazzein_unadjusted[brazzein_sign_corr != 0]))
+print(paste("MNEI: ", mnei_unadjusted[mnei_sign_corr != 0]))
+
+```
+
+```{r}
+my_colour = list(
+    Group = c("Sequence features" = "#f89e44", "Stability predictors" = "#e14f67", "Structural features" = "#aa317a")
+)
+threshold = 0.5
+cellsize = 30
+legend_breaks <- seq(from = -1, to = 1, by = 0.001)
+legend_labels = seq(from = -1, to = 1, by = 0.001)
+fontsize = 20
+fontsize_number = 12
+label_fontsize = 15
+plot_width = 20
+plot_height = 12
+tree_height = 20
+clustered = F
+
+# Correlation plot for Brazzein
+brazzein_labels <- brazzein_sign_corr
+brazzein_labels <- brazzein_labels %>%
+  mutate(across(everything(), ~ifelse(abs(.) == 0, "", round(., 2))))
+
+brazzein_plot <- pheatmap::pheatmap(
+  fontsize = fontsize,
+  fontsize_number = fontsize_number,
+  mat = as.matrix(corr_matrix_brazzein), 
+  main = "Brazzein",
+  annotation_row = group_column, 
+  annotation_names_row = F,
+  show_rownames = F,
+  annotation_colors = my_colour,
+  labels_row = make_bold_names(corr_matrix_brazzein, rownames, rownames(corr_matrix_brazzein)),
+  labels_col = make_bold_names(corr_matrix_brazzein, colnames, colnames(corr_matrix_brazzein)),
+  cluster_rows = T,
+  cluster_cols = T,
+  cellwidth = cellsize,
+  cellheight = cellsize,
+  breaks = legend_breaks,
+  angle_col = 45,
+  fontsize_row = label_fontsize,
+  fontsize_col = label_fontsize,
+  treeheight_col = tree_height,
+  treeheight_row = 50,
+  fontfamily= "Arial",
+  color=colorRampPalette(c("#aa317a", "white", "#f89e44"))(length(legend_breaks)),
+  border_color = NA,
+  number_color = "black",
+  display_numbers = as.matrix(brazzein_labels),
+  legend = F,
+  annotation_legend = F
+)
+
+# Save clustering from the brazzein plot to use for other sweet proteins
+row_clustering <- brazzein_plot$tree_row
+col_clustering <- brazzein_plot$tree_col
+
+# Correlation plot for MNEI
+mnei_labels <- mnei_sign_corr
+mnei_labels <- mnei_labels %>%
+  mutate(across(everything(), ~ifelse(abs(.) == 0, "", round(., 2))))
+
+mnei_plot <- pheatmap::pheatmap(
+  fontsize = fontsize,
+  fontsize_number = fontsize_number,
+  mat = as.matrix(corr_matrix_mnei), 
+  main = "MNEI",
+  show_rownames = F,
+  #annotation_row = group_column, 
+  annotation_names_row = F,
+  annotation_colors = my_colour,
+  labels_col = make_bold_names(corr_matrix_mnei, colnames, colnames(corr_matrix_mnei)),
+  cluster_rows = row_clustering,
+  cluster_cols = col_clustering,
+  cellwidth = cellsize,
+  cellheight = cellsize,
+  breaks = legend_breaks,
+  angle_col = 45,
+  fontsize_row = label_fontsize,
+  fontsize_col = label_fontsize,
+  treeheight_col = tree_height,
+  treeheight_row = 0,
+  fontfamily= "Arial",
+  color=colorRampPalette(c("#aa317a", "white", "#f89e44"))(length(legend_breaks)),
+  border_color = NA,
+  number_color = "black",
+  display_numbers =  as.matrix(mnei_labels),
+  legend = F,
+  annotation_legend = F
+)
+
+# Correlation plot for Thaumatin-II
+thaumatin_labels <- thaumatin_sign_corr
+thaumatin_labels <- thaumatin_labels %>%
+  mutate(across(everything(), ~ifelse(abs(.) == 0, "", round(., 2))))
+
+thaumatin_plot <- pheatmap::pheatmap(
+  fontsize = fontsize,
+  fontsize_number = fontsize_number,
+  mat = as.matrix(corr_matrix_thaumatin), 
+  main = "Thaumatin-II",
+  show_rownames = T,
+  annotation_colors = my_colour,
+  #annotation_row = group_column, 
+  annotation_names_row = F,
+  labels_row = make_bold_names(corr_matrix_thaumatin, rownames, rownames(corr_matrix_thaumatin)),
+  labels_col = make_bold_names(corr_matrix_thaumatin, colnames, colnames(corr_matrix_thaumatin)),
+  cluster_rows = row_clustering,
+  cluster_cols = col_clustering,
+  cellwidth = cellsize,
+  cellheight = cellsize,
+  breaks = legend_breaks,
+  angle_col = 45,
+  fontsize_row = label_fontsize,
+  fontsize_col = label_fontsize,
+  treeheight_col = tree_height,
+  treeheight_row = 0,
+  fontfamily= "Arial",
+  color=colorRampPalette(c("#aa317a", "white", "#f89e44"))(length(legend_breaks)),
+  border_color = NA,
+  number_color = "black",
+  display_numbers = as.matrix(thaumatin_labels),
+  legend = T,
+  annotation_legend = T
+)
+
+g <- grid.arrange(brazzein_plot[[4]], mnei_plot[[4]], thaumatin_plot[[4]], widths = c(0.6, 0.6, 1), padding = unit(0, "line"))
+
+ggsave("./Clustermaps/cluster_map_no_row_annot.png",g, width = plot_width, height = plot_height)
+```
+
+
+
+

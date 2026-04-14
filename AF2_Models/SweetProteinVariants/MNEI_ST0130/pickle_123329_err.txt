@@ -1,0 +1,88 @@
+Loaded miniconda shell environment for bash
+I0907 08:52:57.148071 139700279801664 templates.py:857] Using precomputed obsolete pdbs /projects/ilfgrid/data/alphafold-genetic-databases/pdb_mmcif/obsolete.dat.
+I0907 08:52:57.348858 139700279801664 xla_bridge.py:353] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0907 08:52:59.875484 139700279801664 xla_bridge.py:353] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Host CUDA Interpreter
+I0907 08:52:59.875982 139700279801664 xla_bridge.py:353] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+I0907 08:52:59.876133 139700279801664 xla_bridge.py:353] Unable to initialize backend 'plugin': xla_extension has no attributes named get_plugin_device_client. Compile TensorFlow with //tensorflow/compiler/xla/python:enable_plugin_device set to true (defaults to false) to enable this.
+I0907 08:53:04.034269 139700279801664 run_alphafold.py:395] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I0907 08:53:04.034752 139700279801664 run_alphafold.py:412] Using random seed 1639466376945905555 for the data pipeline
+I0907 08:53:04.035137 139700279801664 run_alphafold.py:161] Predicting MNEI_ST0130
+W0907 08:53:04.035997 139700279801664 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0130/msas/uniref90_hits.sto
+W0907 08:53:04.037644 139700279801664 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0130/msas/mgnify_hits.sto
+I0907 08:53:04.039795 139700279801664 hhsearch.py:85] Launching subprocess "/projects/ilfgrid/apps/alphafold-2.3.1/AF_2.3.1_conda_env/bin/hhsearch -i /tmp/tmps61cqf9s/query.a3m -o /tmp/tmps61cqf9s/output.hhr -maxseq 1000000 -d /projects/ilfgrid/data/alphafold-genetic-databases/pdb70/pdb70"
+I0907 08:53:04.097149 139700279801664 utils.py:36] Started HHsearch query
+I0907 08:53:34.139261 139700279801664 utils.py:40] Finished HHsearch query in 30.042 seconds
+W0907 08:53:34.150472 139700279801664 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0130/msas/bfd_uniref_hits.a3m
+I0907 08:53:34.173493 139700279801664 templates.py:878] Searching for template for: GEWEIIDIGPFTQNLAKFAVDEENKIGQYGRLTFNKVIRPCMKKTIYENEGFREIKGYEYQLYVYASDKLFRADISEDYKTRGRKLLRFNGPVPPP
+I0907 08:53:34.299233 139700279801664 templates.py:912] Skipped invalid hit 2O9U_X Monellin chain B and Monellin; alternative conformations, 3-10 polyproline II; HET: SO4; 1.15A {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:53:36.250168 139700279801664 templates.py:912] Skipped invalid hit 1FUW_A MONELLIN; beta-sheet, alpha-helix, loop, PLANT PROTEIN; NMR {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:53:36.324590 139700279801664 templates.py:912] Skipped invalid hit 5KUX_A Designed influenza inhibitor protein HSB.2; Influenza, inhibitor, designed protein, cystatin; 1.8A {synthetic construct}, error: None, warning: None
+I0907 08:53:36.561649 139700279801664 templates.py:912] Skipped invalid hit 5ML9_B Low affinity immunoglobulin gamma Fc; Fc gamma receptor IIIa Affimer; HET: NAG, PEG, SO4; 2.35A {Homo sapiens}, error: None, warning: None
+I0907 08:53:36.694904 139700279801664 templates.py:912] Skipped invalid hit 5ELJ_A SUMO-ADHIRON-S2D5, Small ubiquitin-related modifier 1; Ubiquitin, Sumoylation, signaling protein; 1.983A {synthetic construct}, error: None, warning: None
+I0907 08:53:38.460723 139700279801664 templates.py:912] Skipped invalid hit 1EQK_A ORYZACYSTATIN-I; alpha and beta proteins, cystatin-like; NMR {Oryza sativa Japonica Group} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:38.517849 139700279801664 templates.py:912] Skipped invalid hit 2Q33_B D-MONELLIN CHAIN A, D-MONELLIN CHAIN; ALPHA/BETA, ALL-D PROTEIN, DE NOVO; 1.8A {N/A}, error: None, warning: None
+I0907 08:53:38.606670 139700279801664 templates.py:912] Skipped invalid hit 5ELU_A SUMO-ADHIRON-S2D5, Small ubiquitin-related modifier 2; Ubiquitin, Sumoylation, signaling protein; HET: SO4; 2.35A {synthetic construct}, error: None, warning: None
+I0907 08:53:40.842015 139700279801664 templates.py:912] Skipped invalid hit 2L4V_A Cystatin; Cystatin, protease inhibitor, HYDROLASE INHIBITOR; NMR {Ananas comosus}, error: None, warning: None
+I0907 08:53:41.139618 139700279801664 templates.py:912] Skipped invalid hit 3IMA_D Papain (E.C.3.4.22.2), Cysteine proteinase inhibitor; CYSTATIN, TAROCYSTATIN, CECPI, PAPAIN, PHYTOCYSTATIN; HET: ACT; 2.03A {Carica papaya}, error: None, warning: None
+I0907 08:53:41.240717 139700279801664 templates.py:912] Skipped invalid hit 4MON_D MONELLIN; SWEET-TASTING PROTEIN, ORTHORHOMBIC CRYSTALS; 2.3A {Dioscoreophyllum cumminsii} SCOP: d.17.1.1, error: None, warning: None
+I0907 08:53:41.409632 139700279801664 templates.py:912] Skipped invalid hit 3MON_C MONELLIN; SWEET-TASTING PROTEIN; 2.8A {Dioscoreophyllum cumminsii}, error: None, warning: None
+I0907 08:53:41.409919 139700279801664 templates.py:912] Skipped invalid hit 2Q33_A D-MONELLIN CHAIN A, D-MONELLIN CHAIN; ALPHA/BETA, ALL-D PROTEIN, DE NOVO; 1.8A {N/A}, error: None, warning: None
+I0907 08:53:41.543423 139700279801664 templates.py:912] Skipped invalid hit 4TX4_B Cysteine Protease Inhibitor; Cysteine Protease Inhibitor, HYDROLASE INHIBITOR; 1.95A {Vigna unguiculata}, error: None, warning: None
+I0907 08:53:42.361380 139700279801664 templates.py:912] Skipped invalid hit 2W9P_E MULTICYSTATIN; PROTEASE INHIBITOR, THIOL PROTEASE INHIBITOR; 2.7A {SOLANUM TUBEROSUM}, error: None, warning: None
+I0907 08:53:42.413220 139700279801664 templates.py:912] Skipped invalid hit 2W9Q_A MULTICYSTATIN; PROTEASE INHIBITOR, THIOL PROTEASE INHIBITOR; 2.5A {SOLANUM TUBEROSUM}, error: None, warning: None
+I0907 08:53:42.688307 139700279801664 templates.py:912] Skipped invalid hit 5ZC1_B Cystatin-1; CsStefin-1, cysteine protease inhibitor, immune; 2.30270802314A {Clonorchis sinensis}, error: None, warning: None
+I0907 08:53:42.688595 139700279801664 templates.py:912] Skipped invalid hit 5ZC1_E Cystatin-1; CsStefin-1, cysteine protease inhibitor, immune; 2.30270802314A {Clonorchis sinensis}, error: None, warning: None
+I0907 08:53:42.997628 139700279801664 templates.py:912] Skipped invalid hit 3KFQ_D Cathepsin L2 (E.C.3.4.22.43), Cystatin-A; papain-like cysteine protease, cathepsin, protease-inhibitor; HET: SCH; 1.99A {Homo sapiens}, error: None, warning: None
+I0907 08:53:43.642251 139700279801664 templates.py:912] Skipped invalid hit 3KSE_E Cathepsin L1 (E.C.3.4.22.15), Cystatin-A; cathepsin, protease-inhibitor complex, stefin, cystatin; HET: SCH; 1.71A {Homo sapiens}, error: None, warning: None
+I0907 08:53:43.791814 139700279801664 templates.py:912] Skipped invalid hit 2OCT_A Cystatin B; stefin, cystatin, amyloid, domain-swapping, hand; 1.4A {Homo sapiens}, error: None, warning: None
+I0907 08:53:45.033960 139700279801664 templates.py:912] Skipped invalid hit 4N6V_5 Cystatin-B; stefin B, cystatin B, partial; HET: SO4; 1.8A {Homo sapiens}, error: None, warning: None
+I0907 08:53:45.181880 139700279801664 templates.py:912] Skipped invalid hit 4LZI_A Multicystatin; cystatin, HYDROLASE INHIBITOR; 2.2A {Solanum tuberosum}, error: None, warning: None
+I0907 08:53:46.416162 139700279801664 templates.py:912] Skipped invalid hit 5KUY_G Hemagglutinin HA1, Hemagglutinin HA2, Designed; Influenza, inhibitor, complex, design, PROTEIN; HET: NAG, BMA; 2.598A {Influenza A virus (strain A/Hong Kong/1/1968 H3N2)}, error: None, warning: None
+I0907 08:53:47.104960 139700279801664 templates.py:912] Skipped invalid hit 2KXG_A Aspartic protease inhibitor; SQAPI, protein, aspartic protease inhibitor; NMR {Cucurbita maxima}, error: None, warning: None
+I0907 08:53:50.542317 139700279801664 templates.py:912] Skipped invalid hit 2MZV_A Cystatin; HYDROLASE INHIBITOR; NMR {Sesamum indicum}, error: None, warning: None
+I0907 08:53:50.610666 139700279801664 templates.py:912] Skipped invalid hit 1ROA_A Cystatin D; inhibitor of cysteine pepidases, cystatin; 1.8A {Homo sapiens} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:51.231343 139700279801664 templates.py:912] Skipped invalid hit 1YVB_I falcipain 2 (E.C.3.4.22.-)/Cystatin; cysteine protease-inhibitor complex, HYDROLASE-HYDROLASE INHIBITOR; 2.7A {Gallus gallus} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:51.454176 139700279801664 templates.py:912] Skipped invalid hit 5O46_A Iristatin; cystatin, protease inhibitor, tick, saliva; HET: GOL; 1.76A {Ixodes ricinus}, error: None, warning: None
+I0907 08:53:51.572170 139700279801664 templates.py:912] Skipped invalid hit 1RN7_A Cystatin D; inhibitor of cysteine peptidases, cystatin; 2.5A {Homo sapiens} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:52.527384 139700279801664 templates.py:912] Skipped invalid hit 6SAZ_B PROTEIN; mammalian fertilization, sperm-egg fusion, polyspermy; HET: NAG, FUC, BMA; 3.0A {Astacus astacus}, error: None, warning: None
+I0907 08:53:52.527647 139700279801664 templates.py:912] Skipped invalid hit 6SAZ_D PROTEIN; mammalian fertilization, sperm-egg fusion, polyspermy; HET: NAG, BMA, FUC; 3.0A {Astacus astacus}, error: None, warning: None
+I0907 08:53:52.527841 139700279801664 templates.py:912] Skipped invalid hit 4LZI_A Multicystatin; cystatin, HYDROLASE INHIBITOR; 2.2A {Solanum tuberosum}, error: None, warning: None
+I0907 08:53:52.528004 139700279801664 templates.py:912] Skipped invalid hit 4LZI_A Multicystatin; cystatin, HYDROLASE INHIBITOR; 2.2A {Solanum tuberosum}, error: None, warning: None
+I0907 08:53:52.705153 139700279801664 templates.py:912] Skipped invalid hit 5A0O_B ADHIRON; DE NOVO PROTEIN, AFFIMER; 2.73A {SYNTHETIC CONSTRUCT}, error: None, warning: None
+I0907 08:53:52.808801 139700279801664 templates.py:912] Skipped invalid hit 3MWZ_A sialostatin L2; antiparallel beta-sheet, HYDROLASE INHIBITOR; 1.52A {Ixodes scapularis}, error: None, warning: None
+I0907 08:53:52.996097 139700279801664 templates.py:912] Skipped invalid hit 3L0R_B Cystatin-2; soft tick, cystatin, Protease inhibitor; HET: GOL; 2.45A {Ornithodoros moubata}, error: None, warning: None
+I0907 08:53:53.405603 139700279801664 templates.py:912] Skipped invalid hit 1R4C_A Cystatin C; HUMAN CYSTATIN C, N-TRUNCATION, 3D; 2.18A {Homo sapiens} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:53.534731 139700279801664 templates.py:912] Skipped invalid hit 3GAX_A Cystatin-C; cysteine protease inhibitor, 3D domain; 1.7A {Homo sapiens}, error: None, warning: None
+I0907 08:53:53.997784 139700279801664 templates.py:912] Skipped invalid hit 6HJL_G Bcl-2-like protein 1, Affimer ADB13; Affimer, PROTEIN BINDING; 2.2A {Homo sapiens}, error: None, warning: None
+I0907 08:53:54.065651 139700279801664 templates.py:912] Skipped invalid hit 1CEW_I CYSTATIN; PROTEINASE INHIBITOR(CYSTEINE); 2.0A {Gallus gallus} SCOP: d.17.1.2, error: None, warning: None
+I0907 08:53:54.357579 139700279801664 templates.py:912] Skipped invalid hit 3UL5_D Canecystatin-1; Cystatin, Defense, HYDROLASE INHIBITOR; HET: GOL; 2.3A {Saccharum officinarum}, error: None, warning: None
+I0907 08:53:55.324160 139700279801664 templates.py:912] Skipped invalid hit 5MN2_D Low affinity immunoglobulin gamma Fc; Fc gamma receptor IIIa Affimer; HET: GOL, NAG, PG4, PEG; 2.35A {Homo sapiens}, error: None, warning: None
+I0907 08:53:55.324462 139700279801664 templates.py:912] Skipped invalid hit 6HJL_D Bcl-2-like protein 1, Affimer ADB13; Affimer, PROTEIN BINDING; 2.2A {Homo sapiens}, error: None, warning: None
+I0907 08:53:55.500205 139700279801664 templates.py:912] Skipped invalid hit 3UL6_A Canecystatin-1; Cystatin, Defense, HYDROLASE INHIBITOR; HET: PE4; 2.63A {Saccharum officinarum}, error: None, warning: None
+I0907 08:53:59.030112 139700279801664 templates.py:912] Skipped invalid hit 2MZV_A Cystatin; HYDROLASE INHIBITOR; NMR {Sesamum indicum}, error: None, warning: None
+I0907 08:53:59.765053 139700279801664 templates.py:912] Skipped invalid hit 6HT9_B Astacin (E.C.3.4.24.21), Fetuin-B; peptidase inhibitor, metallopeptidase, astacin, ovastacin; HET: NAG, GOL; 3.1A {Astacus astacus}, error: None, warning: None
+I0907 08:54:00.110653 139700279801664 templates.py:912] Skipped invalid hit 6HPV_A Fetuin-B; Glycoprotein, cystatin domain, fertilization, egg; HET: NAG; 2.3A {Mus musculus}, error: None, warning: None
+I0907 08:54:00.176350 139700279801664 templates.py:912] Skipped invalid hit 4N6T_A Adhiron; protein scaffold, CONSENSUS PROTEIN, DE; 1.75A {ARTIFICIAL GENE}, error: None, warning: None
+I0907 08:54:01.758666 139700279801664 templates.py:912] Skipped invalid hit 6QOZ_C RNA2 polyprotein, Cowpea mosaic virus; VIRUS, CPMV, COMOVIRIDAE, PICORNAVIRALES, AFFIMEr; 3.4A {Cowpea mosaic virus}, error: None, warning: None
+I0907 08:54:02.474147 139700279801664 templates.py:912] Skipped invalid hit 6SAZ_B PROTEIN; mammalian fertilization, sperm-egg fusion, polyspermy; HET: NAG, FUC, BMA; 3.0A {Astacus astacus}, error: None, warning: None
+I0907 08:54:02.474403 139700279801664 templates.py:912] Skipped invalid hit 6SAZ_D PROTEIN; mammalian fertilization, sperm-egg fusion, polyspermy; HET: NAG, BMA, FUC; 3.0A {Astacus astacus}, error: None, warning: None
+I0907 08:54:02.539700 139700279801664 templates.py:912] Skipped invalid hit 3LH4_A Secreted cystatin; beta sheet, cystatin, Protease inhibitor; 1.8A {Ixodes scapularis}, error: None, warning: None
+I0907 08:54:02.733006 139700279801664 templates.py:912] Skipped invalid hit 4N6O_B legumain (E.C.3.4.22.34), cystatin-M; complex, cysteine protease, inhibitor, legumain; HET: NAG, BMA; 1.8A {Homo sapiens}, error: None, warning: None
+I0907 08:54:02.919738 139700279801664 templates.py:912] Skipped invalid hit 4N6N_B Legumain (E.C.3.4.22.34), Cystatin-M; complex, cysteine protease, inhibitor, legumain; HET: BMA, NAG; 1.87A {Homo sapiens}, error: None, warning: None
+I0907 08:54:02.919998 139700279801664 templates.py:912] Skipped invalid hit 6HT9_B Astacin (E.C.3.4.24.21), Fetuin-B; peptidase inhibitor, metallopeptidase, astacin, ovastacin; HET: NAG, GOL; 3.1A {Astacus astacus}, error: None, warning: None
+I0907 08:54:02.920161 139700279801664 templates.py:912] Skipped invalid hit 6HPV_A Fetuin-B; Glycoprotein, cystatin domain, fertilization, egg; HET: NAG; 2.3A {Mus musculus}, error: None, warning: None
+I0907 08:54:02.997841 139700279801664 templates.py:912] Skipped invalid hit 2CH9_A CYSTATIN F; INHIBITOR, CYSTEINE PROTEASE INHIBITOR, GLYCOPROTEIN; HET: NAG, FUL; 2.1A {HOMO SAPIENS}, error: None, warning: None
+I0907 08:54:03.180418 139700279801664 templates.py:912] Skipped invalid hit 4IT7_B CPI; CPI, cystatin, HYDROLASE INHIBITOR; 2.1A {Ascaris lumbricoides}, error: None, warning: None
+I0907 08:54:03.352822 139700279801664 templates.py:912] Skipped invalid hit 3VZ9_B Uncharacterized protein, Spc24 protein; RWD domain, kinetochore component, chromosome; 1.03A {Gallus gallus}, error: None, warning: None
+I0907 08:54:03.453562 139700279801664 templates.py:912] Skipped invalid hit 4CCV_A HISTIDINE-RICH GLYCOPROTEIN; BLOOD CLOTTING, COAGULATION, CYSTATIN, S-GLUTATHIONYLATION; HET: GOL, BMA, GSH, NAG; 1.93A {ORYCTOLAGUS CUNICULUS}, error: None, warning: None
+I0907 08:54:03.533793 139700279801664 templates.py:912] Skipped invalid hit 6QB2_A Monomer of SQT-1C; Engineered Scaffold protein, De novo; 2.5A {synthetic construct}, error: None, warning: None
+I0907 08:54:05.130729 139700279801664 templates.py:912] Skipped invalid hit 1N5P_A protegrins; cathelin-like domain, cathelicidin, proline isomerization; NMR {Sus scrofa} SCOP: d.17.1.3, error: None, warning: None
+I0907 08:54:05.233466 139700279801664 templates.py:912] Skipped invalid hit 4EYC_A Cathelicidin antimicrobial peptide; cathelin-like domain, pro-domain of human; 1.9A {Homo sapiens}, error: None, warning: None
+I0907 08:54:05.303231 139700279801664 templates.py:912] Skipped invalid hit 2B8I_A PAS factor; Four helix bundle, LIPID BINDING; 1.8A {Vibrio vulnificus}, error: None, warning: None
+I0907 08:54:05.351138 139700279801664 templates.py:912] Skipped invalid hit 1KWI_A Protegrin-3; protegrin, cathelicidin motif, disulfide, MAD; 2.19A {Sus scrofa} SCOP: d.17.1.3, error: None, warning: None
+I0907 08:54:05.405787 139700279801664 templates.py:912] Skipped invalid hit 1LXE_A PROTEGRIN 3 PRECURSOR; PROTEGRIN, CATHELICIDIN MOTIF, DISULFIDE, domain; 2.5A {Sus scrofa} SCOP: d.17.1.3, error: None, warning: None
+I0907 08:54:05.429412 139700279801664 pipeline.py:239] Uniref90 MSA size: 8 sequences.
+I0907 08:54:05.429510 139700279801664 pipeline.py:240] BFD MSA size: 1096 sequences.
+I0907 08:54:05.429566 139700279801664 pipeline.py:241] MGnify MSA size: 1 sequences.
+I0907 08:54:05.429617 139700279801664 pipeline.py:242] Final (deduplicated) MSA size: 1100 sequences.
+I0907 08:54:05.429853 139700279801664 pipeline.py:244] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 0.

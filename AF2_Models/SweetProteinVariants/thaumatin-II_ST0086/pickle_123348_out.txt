@@ -1,0 +1,23 @@
+>> Job with SLURM array id 54 started at: Thu Sep  7 08:58:55 CEST 2023
+   On Machine:     ilfgridgpun02fl.unicph.domain
+   In directory:   /projects/ilfgrid/people/pqh443/AF2/Scripts
+
+
+>> ****** Checking input for thaumatin-II_ST0086 ******
+
+>> Linking precomputed MSAs for thaumatin-II_ST0086: 
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/uniref90_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/uniref90_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/uniprot_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/uniprot_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/mgnify_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/mgnify_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/bfd_uniref_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/bfd_uniclust_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/thaumatin-II_ST0086/pdb_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0086/msas/pdb_hits.sto
+>> =======> All required MSAs were found for thaumatin-II_ST0086.
+
+>> ***** Creating pickle file for thaumatin-II_ST0086 *****
+>> Launching AF2 for thaumatin-II_ST0086
+>>
+
+>> Job finished at: Thu Sep  7 09:00:04 CEST 2023
+
+>> Runtime: 69 s

@@ -1,0 +1,15 @@
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0075_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0086_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0077_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0090_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0079_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0091_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0088_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0084_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0074_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0081_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0087_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0076_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0089_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0082_resfile.txt
+/projects/ilfgrid/people/pqh443/WP2/RosettaDDG_predictions/Thaumatin/Resfiles/thaumatin-II_ST0078_resfile.txt

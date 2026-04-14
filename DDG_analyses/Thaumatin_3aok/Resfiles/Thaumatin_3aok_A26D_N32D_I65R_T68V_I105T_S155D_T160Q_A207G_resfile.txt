@@ -1,0 +1,10 @@
+total 8
+8
+A 26 D
+N 32 D
+I 65 R
+T 68 V
+I 105 T
+S 155 D
+T 160 D
+A 207 G

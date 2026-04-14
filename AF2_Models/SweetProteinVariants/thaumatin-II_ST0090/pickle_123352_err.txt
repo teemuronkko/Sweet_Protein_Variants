@@ -1,0 +1,45 @@
+Loaded miniconda shell environment for bash
+I0907 09:00:09.466061 140053046024000 templates.py:857] Using precomputed obsolete pdbs /projects/ilfgrid/data/alphafold-genetic-databases/pdb_mmcif/obsolete.dat.
+I0907 09:00:09.685115 140053046024000 xla_bridge.py:353] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0907 09:00:11.593668 140053046024000 xla_bridge.py:353] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter Host CUDA
+I0907 09:00:11.594224 140053046024000 xla_bridge.py:353] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+I0907 09:00:11.594337 140053046024000 xla_bridge.py:353] Unable to initialize backend 'plugin': xla_extension has no attributes named get_plugin_device_client. Compile TensorFlow with //tensorflow/compiler/xla/python:enable_plugin_device set to true (defaults to false) to enable this.
+I0907 09:00:16.471297 140053046024000 run_alphafold.py:395] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I0907 09:00:16.472881 140053046024000 run_alphafold.py:412] Using random seed 873445938486450227 for the data pipeline
+I0907 09:00:16.473238 140053046024000 run_alphafold.py:161] Predicting thaumatin-II_ST0090
+W0907 09:00:16.474274 140053046024000 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0090/msas/uniref90_hits.sto
+W0907 09:00:16.873159 140053046024000 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0090/msas/mgnify_hits.sto
+I0907 09:00:19.577642 140053046024000 hhsearch.py:85] Launching subprocess "/projects/ilfgrid/apps/alphafold-2.3.1/AF_2.3.1_conda_env/bin/hhsearch -i /tmp/tmpg12sel0j/query.a3m -o /tmp/tmpg12sel0j/output.hhr -maxseq 1000000 -d /projects/ilfgrid/data/alphafold-genetic-databases/pdb70/pdb70"
+I0907 09:00:19.647367 140053046024000 utils.py:36] Started HHsearch query
+I0907 09:01:00.756249 140053046024000 utils.py:40] Finished HHsearch query in 41.109 seconds
+W0907 09:01:01.823639 140053046024000 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/thaumatin-II_ST0090/msas/bfd_uniref_hits.a3m
+I0907 09:01:01.878624 140053046024000 templates.py:878] Searching for template for: ATFEIVNRCSYTVWAAASKGDAALDAGGRQLNSGESWTINVEPGTKGGKIWARTDCYFDDSGRGICRTGDCGGLLQCKRFGRPPTTLAEFSLNQYGKDYIDISNIKGFNVPMDFSPTTRGCRGVRCAADIVGQCPPKLKAPGGGCNDACTVFQTSEYCCTTGKCGPTEYSRFFKRLCPDAFSYVLDKPTTVTCPGSSNYRVTFCPTA
+I0907 09:01:02.408943 140053046024000 templates.py:912] Skipped invalid hit 5X9L_A Thaumatin I; Sweet-tasting protein, Sweet receptor, PLANT; HET: TLA, GOL; 0.9A {Thaumatococcus daniellii}, error: None, warning: None
+I0907 09:01:02.567722 140053046024000 templates.py:912] Skipped invalid hit 6COA_A Thaumatin I; Sweet tasting protein, agarose gel; HET: TLA; 1.2A {Thaumatococcus daniellii}, error: None, warning: None
+I0907 09:01:02.727536 140053046024000 templates.py:912] Skipped invalid hit 6G89_C Thaumatin I; Native-SAD, JUNGFRAU, integrating detector, PLANT; HET: TLA; 2.359A {Thaumatococcus daniellii}, error: None, warning: None
+I0907 09:01:02.823820 140053046024000 templates.py:912] Skipped invalid hit 6E0D_A Thaumatin I; SWEET TASTING PROTEIN, disulfides, dye; HET: XXX, TLA; 2.24A {Thaumatococcus daniellii}, error: None, warning: None
+I0907 09:01:02.989590 140053046024000 templates.py:912] Skipped invalid hit 1PCV_B Osmotin; PR-5 protein family, antifungal protein; 2.3A {Nicotiana tabacum} SCOP: b.25.1.1, error: None, warning: None
+I0907 09:01:03.160604 140053046024000 templates.py:912] Skipped invalid hit 4BCT_A THAUMATIN-LIKE PROTEIN; ALLERGEN, TLP; HET: EPE; 0.98A {ACTINIDIA DELICIOSA}, error: None, warning: None
+I0907 09:01:03.269197 140053046024000 templates.py:912] Skipped invalid hit 2AHN_A Thaumatin-like protein; Allergen, Thaumatin-like protein; 1.3A {Prunus avium}, error: None, warning: None
+I0907 09:01:03.428345 140053046024000 templates.py:912] Skipped invalid hit 1DU5_B ZEAMATIN; beta sandwich, antifungal protein; 2.5A {Zea mays} SCOP: b.25.1.1, error: None, warning: None
+I0907 09:01:03.722582 140053046024000 templates.py:912] Skipped invalid hit 3ZS3_A THAUMATIN-LIKE PROTEIN; ALLERGEN; HET: ACT; 1.8A {MALUS X DOMESTICA}, error: None, warning: None
+I0907 09:01:03.786682 140053046024000 templates.py:912] Skipped invalid hit 3G7M_A Xylanase inhibitor TL-XI; beta-sheets, Xylan degradation, HYDROLASE INHIBITOR; HET: GOL; 2.91A {Triticum aestivum}, error: None, warning: None
+I0907 09:01:03.920395 140053046024000 templates.py:912] Skipped invalid hit 5FID_A Elicitor protein Hrip2; Protein elicitor, TOXIN; HET: MSE; 1.809A {Magnaporthe oryzae}, error: None, warning: None
+I0907 09:01:04.109499 140053046024000 templates.py:912] Skipped invalid hit 5H9X_A beta-1,3-glucanase (E.C.3.2.1.39); beta-1, 3-glucan recognition, glycoside hydrolase; 1.91A {Paenibacillus barengoltzii }, error: None, warning: None
+I0907 09:01:04.316260 140053046024000 templates.py:912] Skipped invalid hit 5H9Y_A beta-1,3-glucanase (E.C.3.2.1.39); beta-1, 3-glucan recognition, glycoside hydrolase; HET: BGC, TLA; 1.969A {Paenibacillus barengoltzii}, error: None, warning: None
+I0907 09:01:04.503430 140053046024000 templates.py:912] Skipped invalid hit 3GD0_A Laminaripentaose-producing beta-1,3-guluase (LPHase) (E.C.3.2.1.39); Glycoside hydrolase, Laminaripentaose-producing beta-1, 3-glucnase; 1.62A {Streptomyces matensis}, error: None, warning: None
+I0907 09:01:04.691027 140053046024000 templates.py:912] Skipped invalid hit 3GD9_A Laminaripentaose-producing beta-1,3-guluase (LPHase) (E.C.3.2.1.39); Glycoside hydrolases, Laminaripentaose-producing beta-1, 3-glucnase; HET: GLC, BGC; 1.8A {Streptomyces matensis}, error: None, warning: None
+I0907 09:01:04.691265 140053046024000 templates.py:912] Skipped invalid hit 3GD0_A Laminaripentaose-producing beta-1,3-guluase (LPHase) (E.C.3.2.1.39); Glycoside hydrolase, Laminaripentaose-producing beta-1, 3-glucnase; 1.62A {Streptomyces matensis}, error: None, warning: None
+I0907 09:01:04.691411 140053046024000 templates.py:912] Skipped invalid hit 3GD9_A Laminaripentaose-producing beta-1,3-guluase (LPHase) (E.C.3.2.1.39); Glycoside hydrolases, Laminaripentaose-producing beta-1, 3-glucnase; HET: GLC, BGC; 1.8A {Streptomyces matensis}, error: None, warning: None
+I0907 09:01:04.878065 140053046024000 templates.py:912] Skipped invalid hit 5H4E_A Beta and gamma crystallin; Hydrolase, beta-1, 3-glucanase; 1.863A {Clostridium beijerinckii}, error: None, warning: None
+I0907 09:01:06.043695 140053046024000 templates.py:912] Skipped invalid hit 2KER_A Alpha-amylase inhibitor Z-2685; alpha-amylase inhibitor, Parvulustat (Z-2685), HYDROLASE; NMR {Streptomyces parvulus}, error: None, warning: None
+I0907 09:01:06.120331 140053046024000 templates.py:912] Skipped invalid hit 1OK0_A ALPHA-AMYLASE INHIBITOR HOE-467A; INHIBITOR, ALPHA AMYLASE INHIBITOR; HET: GOL; 0.93A {STREPTOMYCES TENDAE} SCOP: b.5.1.1, error: None, warning: None
+I0907 09:01:06.178065 140053046024000 templates.py:912] Skipped invalid hit 4AIT_A TENDAMISTAT (ENERGY MINIMIZED MODEL USING; ALPHA-AMYLASE INHIBITOR; NMR {Streptomyces tendae} SCOP: b.5.1.1, error: None, warning: None
+I0907 09:01:06.178282 140053046024000 templates.py:912] Skipped invalid hit 3G7M_A Xylanase inhibitor TL-XI; beta-sheets, Xylan degradation, HYDROLASE INHIBITOR; HET: GOL; 2.91A {Triticum aestivum}, error: None, warning: None
+I0907 09:01:06.518110 140053046024000 templates.py:912] Skipped invalid hit 4AOR_F CATIONIC TRYPSIN (E.C.3.4.21.4), TRYPSIN INHIBITOR; HYDROLASE-INHIBITOR COMPLEX, MINIPROTEIN SCAFFOLD, KNOTTINS; HET: GOL, MES, IMD; 1.702A {BOS TAURUS}, error: None, warning: None
+I0907 09:01:07.136356 140053046024000 templates.py:912] Skipped invalid hit 4AOQ_F CATIONIC TRYPSIN (E.C.3.4.21.4), TRYPSIN INHIBITOR; HYDROLASE-INHIBITOR COMPLEX, MINIPROTEIN SCAFFOLD, KNOTTINS; HET: 1PE; 2.0A {BOS TAURUS}, error: None, warning: None
+I0907 09:01:07.490271 140053046024000 pipeline.py:239] Uniref90 MSA size: 7764 sequences.
+I0907 09:01:07.490462 140053046024000 pipeline.py:240] BFD MSA size: 1596 sequences.
+I0907 09:01:07.490516 140053046024000 pipeline.py:241] MGnify MSA size: 342 sequences.
+I0907 09:01:07.490566 140053046024000 pipeline.py:242] Final (deduplicated) MSA size: 9455 sequences.
+I0907 09:01:07.490813 140053046024000 pipeline.py:244] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 0.

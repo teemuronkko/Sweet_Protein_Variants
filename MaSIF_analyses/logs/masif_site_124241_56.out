@@ -1,0 +1,133 @@
+Loaded miniconda shell environment for bash
+Running masif site on /projects/ilfgrid/people/pqh443/WP2/MaSIF_analyses/SweetProteinVariant_models/thaumatin-II-ST0088.pdb
+Empty
+Removing degenerated triangles
+thaumatin-II-ST0088_A
+Reading data from input ply surface files.
+Dijkstra took 5.27s
+Only MDS time: 19.36s
+Full loop time: 27.22s
+MDS took 27.22s
+Setting model_dir to nn_models/all_feat_3l/model_data/ 
+Setting feat_mask to [1.0, 1.0, 1.0, 1.0, 1.0] 
+Setting n_conv_layers to 3 
+Setting out_pred_dir to output/all_feat_3l/pred_data/ 
+Setting out_surf_dir to output/all_feat_3l/pred_surfaces/ 
+(12, 2)
+global_desc shape: <unknown>
+<tf.Variable 'mu_rho_0:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_0:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_0:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_0:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_1:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_1:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_1:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_1:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_4:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_4:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_4:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_4:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_l2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_l2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_l2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_l2:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_rho_l3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'mu_theta_l3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_rho_l3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'sigma_theta_l3:0' shape=(1, 12) dtype=float32_ref>
+12
+<tf.Variable 'b_conv_0:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'b_conv_1:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'b_conv_2:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'b_conv_3:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'b_conv_4:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'W_conv_0:0' shape=(12, 12) dtype=float32_ref>
+144
+<tf.Variable 'W_conv_1:0' shape=(12, 12) dtype=float32_ref>
+144
+<tf.Variable 'W_conv_2:0' shape=(12, 12) dtype=float32_ref>
+144
+<tf.Variable 'W_conv_3:0' shape=(12, 12) dtype=float32_ref>
+144
+<tf.Variable 'W_conv_4:0' shape=(12, 12) dtype=float32_ref>
+144
+<tf.Variable 'fully_connected/weights:0' shape=(60, 12) dtype=float32_ref>
+720
+<tf.Variable 'fully_connected/biases:0' shape=(12,) dtype=float32_ref>
+12
+<tf.Variable 'fully_connected_1/weights:0' shape=(12, 5) dtype=float32_ref>
+60
+<tf.Variable 'fully_connected_1/biases:0' shape=(5,) dtype=float32_ref>
+5
+<tf.Variable 'W_conv_l2:0' shape=(60, 60) dtype=float32_ref>
+3600
+<tf.Variable 'b_conv_l2:0' shape=(60,) dtype=float32_ref>
+60
+<tf.Variable 'W_conv_l3:0' shape=(60, 60) dtype=float32_ref>
+3600
+<tf.Variable 'b_conv_l3:0' shape=(60,) dtype=float32_ref>
+60
+<tf.Variable 'fully_connected_2/weights:0' shape=(5, 4) dtype=float32_ref>
+20
+<tf.Variable 'fully_connected_2/biases:0' shape=(4,) dtype=float32_ref>
+4
+<tf.Variable 'fully_connected_3/weights:0' shape=(4, 2) dtype=float32_ref>
+8
+<tf.Variable 'fully_connected_3/biases:0' shape=(2,) dtype=float32_ref>
+2
+Total number parameters: 9267
+Restoring model from: nn_models/all_feat_3l/model_data/model
+thaumatin-II-ST0088_A
+Evaluating thaumatin-II-ST0088_A
+Total number of patches:3912 
+
+Total number of patches for which scores were computed: 3912
+
+GPU time (real time, not actual GPU time): 1.153s
+Setting model_dir to nn_models/all_feat_3l/model_data/ 
+Setting feat_mask to [1.0, 1.0, 1.0, 1.0, 1.0] 
+Setting n_conv_layers to 3 
+Setting out_pred_dir to output/all_feat_3l/pred_data/ 
+Setting out_surf_dir to output/all_feat_3l/pred_surfaces/ 
+No ROC AUC computed for protein (possibly, no ground truth defined in input)
+Successfully saved file output/all_feat_3l/pred_surfaces/thaumatin-II-ST0088_A.ply

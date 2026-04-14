@@ -1,0 +1,6 @@
+total 4
+4
+T 12 A
+G 16 A
+C 41 A
+Y 60 F

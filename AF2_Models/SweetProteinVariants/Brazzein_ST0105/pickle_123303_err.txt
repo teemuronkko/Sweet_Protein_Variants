@@ -1,0 +1,64 @@
+Loaded miniconda shell environment for bash
+I0907 08:42:50.416617 140099120961344 templates.py:857] Using precomputed obsolete pdbs /projects/ilfgrid/data/alphafold-genetic-databases/pdb_mmcif/obsolete.dat.
+I0907 08:42:50.618519 140099120961344 xla_bridge.py:353] Unable to initialize backend 'tpu_driver': NOT_FOUND: Unable to find driver in registry given worker: 
+I0907 08:42:56.781820 140099120961344 xla_bridge.py:353] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: CUDA Host Interpreter
+I0907 08:42:56.783062 140099120961344 xla_bridge.py:353] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+I0907 08:42:56.783212 140099120961344 xla_bridge.py:353] Unable to initialize backend 'plugin': xla_extension has no attributes named get_plugin_device_client. Compile TensorFlow with //tensorflow/compiler/xla/python:enable_plugin_device set to true (defaults to false) to enable this.
+I0907 08:43:01.666210 140099120961344 run_alphafold.py:395] Have 5 models: ['model_1_pred_0', 'model_2_pred_0', 'model_3_pred_0', 'model_4_pred_0', 'model_5_pred_0']
+I0907 08:43:01.666673 140099120961344 run_alphafold.py:412] Using random seed 1634608140258980611 for the data pipeline
+I0907 08:43:01.667491 140099120961344 run_alphafold.py:161] Predicting Brazzein_ST0105
+W0907 08:43:01.669680 140099120961344 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0105/msas/uniref90_hits.sto
+W0907 08:43:01.671615 140099120961344 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0105/msas/mgnify_hits.sto
+I0907 08:43:01.673828 140099120961344 hhsearch.py:85] Launching subprocess "/projects/ilfgrid/apps/alphafold-2.3.1/AF_2.3.1_conda_env/bin/hhsearch -i /tmp/tmpu2tbbe9k/query.a3m -o /tmp/tmpu2tbbe9k/output.hhr -maxseq 1000000 -d /projects/ilfgrid/data/alphafold-genetic-databases/pdb70/pdb70"
+I0907 08:43:01.812455 140099120961344 utils.py:36] Started HHsearch query
+I0907 08:43:29.352895 140099120961344 utils.py:40] Finished HHsearch query in 27.540 seconds
+W0907 08:43:29.364605 140099120961344 pipeline.py:100] Reading MSA from file /projects/ilfgrid/people/pqh443/AF2/Models/Brazzein_ST0105/msas/bfd_uniref_hits.a3m
+I0907 08:43:29.365926 140099120961344 templates.py:878] Searching for template for: QDKCKKVYENYPVSKCQLANQCNYDCKLDKHCRSGECFYDEKRNLQCICDCCEY
+I0907 08:43:29.420254 140099120961344 templates.py:912] Skipped invalid hit 4HE7_A Defensin-like protein; Sweet-Tasting Protein, PLANT PROTEIN; 1.8A {Pentadiplandra brazzeana}, error: None, warning: None
+I0907 08:43:29.479191 140099120961344 templates.py:912] Skipped invalid hit 1JXC_A Putative trypsin inhibitor ATTI-2; ATT, trypsin inhibitor, chymotrypsin inhibitor; NMR {Arabidopsis thaliana} SCOP: g.3.7.5, error: None, warning: None
+I0907 08:43:30.667267 140099120961344 templates.py:912] Skipped invalid hit 2LY5_A Defensin-like protein; CYS-SAIL, RDC, brazzein, PLANT PROTEIN; NMR {Pentadiplandra brazzeana}, error: None, warning: None
+I0907 08:43:32.355215 140099120961344 templates.py:912] Skipped invalid hit 2KPY_A Major pollen allergen Art v; Defensin-like, Poly-proline, ALLERGEN; NMR {Artemisia vulgaris}, error: None, warning: None
+I0907 08:43:33.769015 140099120961344 templates.py:912] Skipped invalid hit 2KSK_A Sugarcane defensin 5; CSalphabeta motif, ANTIMICROBIAL PROTEIN; NMR {Saccharum officinarum}, error: None, warning: None
+I0907 08:43:34.626356 140099120961344 templates.py:912] Skipped invalid hit 1BK8_A ANTIMICROBIAL PROTEIN 1; PLANT DEFENSIN, ANTIMICROBIAL, CYSTEINE-STABILIZED ALFA/; NMR {Aesculus hippocastanum} SCOP: g.3.7.5, error: None, warning: None
+I0907 08:43:35.630099 140099120961344 templates.py:912] Skipped invalid hit 2N2R_A Defensin-like protein 2; ANTIFUNGAL PROTEIN; NMR {Raphanus sativus}, error: None, warning: None
+I0907 08:43:36.283388 140099120961344 templates.py:912] Skipped invalid hit 6NOM_A Defensin-2; Psd1, Psd2, plant defensins, antimicrobial; NMR {Pisum sativum}, error: None, warning: None
+I0907 08:43:37.007804 140099120961344 templates.py:912] Skipped invalid hit 6B55_P Defensin NsD7; antimicrobial, antifungal, defensin, PLANT PROTEIN; HET: PO4, PA8, EDO, PGE; 2.5A {Nicotiana alata}, error: None, warning: None
+I0907 08:43:37.855380 140099120961344 templates.py:912] Skipped invalid hit 1I2U_A Defensin Heliomicin; alpha-beta protein, CSab motif (cysteine; NMR {Heliothis virescens} SCOP: g.3.7.4, error: None, warning: None
+I0907 08:43:38.000432 140099120961344 templates.py:912] Skipped invalid hit 4UJ0_A FLOWER-SPECIFIC GAMMA-THIONIN-LIKE PROTEIN/ACIDIC PROTEIN; ANTIBIOTIC, IMMUNE SYSTEM, ANTIMICROBIAL PEPTIDE; 1.7A {SOLANUM LYCOPERSICUM}, error: None, warning: None
+I0907 08:43:38.534303 140099120961344 templates.py:912] Skipped invalid hit 1TI5_A plant defensin; defensin, insecticidal activity, mung bean; NMR {Vigna radiata}, error: None, warning: None
+I0907 08:43:39.252558 140099120961344 templates.py:912] Skipped invalid hit 2D56_A ASABF; ANTIBACTERIAL PEPTIDE, CYSTINE STABILIZED ALPHA-BETA; NMR {Ascaris suum}, error: None, warning: None
+I0907 08:43:39.316619 140099120961344 templates.py:912] Skipped invalid hit 1AHO_A TOXIN II; TOXIN II, SCORPION, AB INITIO; 0.96A {Androctonus australis} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:40.644279 140099120961344 templates.py:912] Skipped invalid hit 2MFJ_A Blo t 19; Allergen, Anti-microbial Protein; NMR {Blomia tropicalis}, error: None, warning: None
+I0907 08:43:40.688106 140099120961344 templates.py:912] Skipped invalid hit 1SNB_A NEUROTOXIN BMK M8; NEUROTOXIN, SODIUM CHANNEL INHIBITOR, SCORPION; 1.9A {Mesobuthus martensii} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:41.624699 140099120961344 templates.py:912] Skipped invalid hit 5IX5_A Antibacterial factor-related peptide 2; antimicrobial peptide, CYANA 2.1, ANTIBIOTIC; NMR {Caenorhabditis elegans}, error: None, warning: None
+I0907 08:43:41.694156 140099120961344 templates.py:912] Skipped invalid hit 1SEG_A AAH2: LQH-ALPHA-IT (FACE) CHIMERIC TOXIN; TOXIN, CHIMERA, SCORPION; 1.3A {Androctonus australis hector} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:42.390470 140099120961344 templates.py:912] Skipped invalid hit 1LQQ_A LQQIII; NEUROTOXIN, LQQIII, SCORPION TOXIN, CSALPHA-BETA; NMR {Leiurus quinquestriatus quinquestriatus} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:42.505041 140099120961344 templates.py:912] Skipped invalid hit 2YEO_A ALPHA-INSECT TOXIN LQHAIT; TOXIN, DEFENSE RESPONSE; HET: DR8, EDO, DR0; 1.08A {LEIURUS QUINQUESTRIATUS HEBRAEUS}, error: None, warning: None
+I0907 08:43:42.588208 140099120961344 templates.py:912] Skipped invalid hit 2ASC_A Scorpion toxin LQH-alpha-IT; alpha toxin, scorpion, toxin; HET: EDO, DR8, DR0; 1.1A {Leiurus quinquestriatus} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:43.682710 140099120961344 templates.py:912] Skipped invalid hit 4AEI_A ALPHA-MAMMAL TOXIN AAH2, FAB ANTIBODY; IMMUNE SYSTEM-TOXIN COMPLEX, ALPHA-TOXIN, CONFORMATIONAL; HET: EPE; 2.3A {ANDROCTONUS AUSTRALIS HECTOR}, error: None, warning: None
+I0907 08:43:43.758013 140099120961344 templates.py:912] Skipped invalid hit 2A7T_B Neurotoxin; NOVEL, NEUROTOXIN, RED SCORPION, Toxin; 2.2A {Mesobuthus tamulus} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:44.916020 140099120961344 templates.py:912] Skipped invalid hit 2KIR_A PROTEIN; venom, scorpion, phage display, TOXIN; NMR {synthetic}, error: None, warning: None
+I0907 08:43:44.999608 140099120961344 templates.py:912] Skipped invalid hit 1T0Z_B insect neurotoxin; alpha-beta, TOXIN; HET: SO4; 2.6A {Mesobuthus martensii} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:45.904245 140099120961344 templates.py:912] Skipped invalid hit 1NRB_A NEUROTOXIN V, CSE-V (NMR, 20; NEUROTOXIN; NMR {Centruroides sculpturatus} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:46.749958 140099120961344 templates.py:912] Skipped invalid hit 1NH5_A Neurotoxin 5; SCORPION NEUROTOXIN, NEW WORLD TOXIN; NMR {Centruroides exilicauda} SCOP: g.3.7.1, error: None, warning: None
+I0907 08:43:47.552994 140099120961344 templates.py:912] Skipped invalid hit 2YBR_I SINGLE CHAIN ANTIBODY FRAGMENT 9004G; IMMUNE SYSTEM-TOXIN COMPLEX, SCORPION TOXIN; 2.55A {CENTRUROIDES NOXIUS HOFFMANN}, error: None, warning: None
+I0907 08:43:47.853387 140099120961344 templates.py:912] Skipped invalid hit 2YC1_F SINGLE CHAIN ANTIBODY FRAGMENT 9004G; IMMUNE SYSTEM-TOXIN COMPLEX, SCORPION TOXIN; HET: GOL; 1.9A {CENTRUROIDES NOXIUS HOFFMANN}, error: None, warning: None
+I0907 08:43:48.803045 140099120961344 templates.py:912] Skipped invalid hit 1T1T_A Kurtoxin; Cysteine stabilized alpha-beta, TOXIN; NMR {Parabuthus transvaalicus}, error: None, warning: None
+I0907 08:43:48.875650 140099120961344 templates.py:912] Skipped invalid hit 5CY0_A Ts3 Toxin; Racemic Structure, Nav ligand, central; HET: GOL; 1.93A {N/A}, error: None, warning: None
+I0907 08:43:50.787977 140099120961344 templates.py:912] Skipped invalid hit 2LJM_A Beta-mammal toxin Css2; CS alfa beta, TOXIN; NMR {Centruroides suffusus suffusus}, error: None, warning: None
+I0907 08:43:51.326481 140099120961344 templates.py:912] Skipped invalid hit 1S8K_A Toxin BmKK4; ALPHA/BETA scaffold, Toxin; NMR {Mesobuthus martensii}, error: None, warning: None
+I0907 08:43:51.326719 140099120961344 templates.py:718] hit 2mzf_A did not pass prefilter: Template too short. Length: 8.
+I0907 08:43:51.326805 140099120961344 templates.py:912] Skipped invalid hit 2MZF_A Purotoxin-2; purotoxin-2, module toxin, spider venom; NMR {Geolycosa sp. A267TDLS2-KZARNA}, error: None, warning: None
+I0907 08:43:51.326875 140099120961344 templates.py:718] hit 6a95_B did not pass prefilter: Template too short. Length: 6.
+I0907 08:43:51.326928 140099120961344 templates.py:912] Skipped invalid hit 6A95_B Sodium channel protein PaFPC1, Mu-diguetoxin-Dc1a; complex, sodium channel, toxin, MEMBRANE; HET: 9SR, NAG; 2.6A {Periplaneta americana}, error: None, warning: None
+I0907 08:43:51.326988 140099120961344 templates.py:718] hit 4lb1_A did not pass prefilter: Template too short. Length: 6.
+I0907 08:43:51.327051 140099120961344 templates.py:912] Skipped invalid hit 4LB1_A Neutrophil defensin 1; ANTIMICROBIAL PEPTIDE, HUMAN ALPHA DEFENSIN; 2.0A {N/A}, error: None, warning: None
+I0907 08:43:51.327104 140099120961344 templates.py:718] hit 3lvx_A did not pass prefilter: Template too short. Length: 6.
+I0907 08:43:51.327150 140099120961344 templates.py:912] Skipped invalid hit 3LVX_A Crystal structure of human alpha-defensin; antimicrobial peptide, human alpha defensin; HET: SO4; 1.63A {N/A}, error: None, warning: None
+I0907 08:43:51.327227 140099120961344 templates.py:718] hit 3hj2_A did not pass prefilter: Template too short. Length: 6.
+I0907 08:43:51.327274 140099120961344 templates.py:912] Skipped invalid hit 3HJ2_A Neutrophil defensin 1; defensin, antimicrobial, chemotactic, cationic, Cys-rich; 1.4A {N/A}, error: None, warning: None
+I0907 08:43:51.327629 140099120961344 pipeline.py:239] Uniref90 MSA size: 2 sequences.
+I0907 08:43:51.327694 140099120961344 pipeline.py:240] BFD MSA size: 1 sequences.
+I0907 08:43:51.327766 140099120961344 pipeline.py:241] MGnify MSA size: 3 sequences.
+I0907 08:43:51.327815 140099120961344 pipeline.py:242] Final (deduplicated) MSA size: 4 sequences.
+I0907 08:43:51.328119 140099120961344 pipeline.py:244] Total number of templates (NB: this can include bad templates and is later filtered to top 4): 0.

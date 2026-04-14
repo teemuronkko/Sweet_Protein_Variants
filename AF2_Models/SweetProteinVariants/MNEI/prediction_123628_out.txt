@@ -1,0 +1,11 @@
+>> Job with SLURM array id 22 started at: Fri Sep  8 22:15:38 CEST 2023
+   On Machine:     ilfgridgpun01fl.unicph.domain
+
+>> ***** Starting prediction for MNEI *****
+>> Launching AF with the following command: 
+>> /projects/ilfgrid/apps/alphafold-2.3.1/run_alphafold.sh -d /projects/ilfgrid/data/alphafold-genetic-databases -o /projects/ilfgrid/people/pqh443/AF2/Models -f /projects/ilfgrid/people/pqh443/AF2/Fastas/Proteins/MNEI.fasta -t '1900-01-01' -g true -r false -n 8 -m monomer -c full_dbs -p true -b false
+>>
+>> ***** Prediction for MNEI finished in 775 seconds. *****
+>>
+>> Job finished at: Fri Sep  8 22:28:33 CEST 2023
+>> Runtime: 775 s

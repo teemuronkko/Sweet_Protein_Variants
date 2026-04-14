@@ -1,0 +1,12 @@
+mutations,average_distance,sum_single_predictions,dynamut2_prediction
+Brazzein_A Y8F;A Y11F,5.76,-1.59,-0.17
+Brazzein_A V13T;A A19S,12.36,-0.61,-1.58
+Brazzein_A Y8F;A Y11F-A_G35A,8.89,-1.5,-0.26
+Brazzein_A Y8C;A Y11C,5.76,0.26,-0.43
+Brazzein_A A32C;A Y51C,4.95,0.47,-0.26
+Brazzein_A K15C;A Q21C,6.0,0.81,-0.49
+Brazzein_A V13C;A L45C,6.29,-0.31,-1.49
+Brazzein_A R33C;A Y54C,4.8,0.27,-0.88
+Brazzein_A V7C;A Q46C,6.83,1.66,0.72
+Brazzein_A P12C;A K15C,5.33,0.67,-0.71
+Brazzein_A S34C;A Y54C,4.98,-0.03,-0.24

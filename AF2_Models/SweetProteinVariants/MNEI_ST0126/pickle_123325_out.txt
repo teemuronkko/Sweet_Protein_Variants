@@ -1,0 +1,23 @@
+>> Job with SLURM array id 32 started at: Thu Sep  7 08:50:26 CEST 2023
+   On Machine:     ilfgridgpun02fl.unicph.domain
+   In directory:   /projects/ilfgrid/people/pqh443/AF2/Scripts
+
+
+>> ****** Checking input for MNEI_ST0126 ******
+
+>> Linking precomputed MSAs for MNEI_ST0126: 
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/uniref90_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/uniref90_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/uniprot_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/uniprot_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/mgnify_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/mgnify_hits.sto
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/bfd_uniref_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/bfd_uniref_hits.a3m to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/bfd_uniclust_hits.a3m
+>> -----> Linking /projects/ilfgrid/people/pqh443/AF2/MSAs/MNEI_ST0126/pdb_hits.sto to /projects/ilfgrid/people/pqh443/AF2/Models/MNEI_ST0126/msas/pdb_hits.sto
+>> =======> All required MSAs were found for MNEI_ST0126.
+
+>> ***** Creating pickle file for MNEI_ST0126 *****
+>> Launching AF2 for MNEI_ST0126
+>>
+
+>> Job finished at: Thu Sep  7 08:51:37 CEST 2023
+
+>> Runtime: 71 s

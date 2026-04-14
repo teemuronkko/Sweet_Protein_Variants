@@ -1,0 +1,14 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="fullatom" weights="ref2015_cart" symmetric="0">
+        </ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+        <FastRelax name="fastrelax" scorefxn="fullatom" cartesian="1" repeats="4"/> 
+	</MOVERS>
+	<PROTOCOLS>
+        <Add mover="fastrelax"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="fullatom"/>
+ 
+</ROSETTASCRIPTS>

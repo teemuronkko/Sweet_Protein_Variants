@@ -1,0 +1,2 @@
+/projects/ilfgrid/people/pqh443/WP2/MaSIF_analyses/SweetReceptor_models/AF-Q7RTX0-F1-model.pdb
+/projects/ilfgrid/people/pqh443/WP2/MaSIF_analyses/SweetReceptor_models/AF-Q8TE23-F1-model.pdb
