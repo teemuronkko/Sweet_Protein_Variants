@@ -1,0 +1,2 @@
+# Correlation analyses
+This directory contains the required data and scripts for Supplementary Figure 4 and Figure 3c. These analysis cover the correlation between computational descriptors of proteins and experimentally measured values of yield and stability. 

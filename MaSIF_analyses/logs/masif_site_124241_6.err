@@ -1,4 +1,0 @@
-WARNING:tensorflow:From /maps/projects/ilfgrid/apps/masif/source/masif_modules/MaSIF_site.py:108: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
-Instructions for updating:
-keep_dims is deprecated, use keepdims instead
-2023-09-11 14:20:19.820315: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA

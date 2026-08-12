@@ -1,9 +1,0 @@
-total 7
-7
-T 12 A
-G 16 A
-Y 29 F
-C 41 A
-M 42 Q
-Y 47 Q
-Y 60 F

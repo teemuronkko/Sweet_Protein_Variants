@@ -1,0 +1,266 @@
+---
+title: "Cluster_map"
+author: "Teemu Rönkkö"
+date: "2024-02-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pheatmap)
+library(patchwork)
+library(dplyr)
+library(tidyverse)
+library(devtools)
+library(grid)
+library(gridExtra)
+library(Hmisc)
+library(writexl)
+library(ggplot2)
+
+flattenCorrMatrix <- function(cormat, pmat) {
+  ut <- upper.tri(cormat)
+  data.frame(
+    row = rownames(cormat)[row(cormat)[ut]],
+    column = rownames(cormat)[col(cormat)[ut]],
+    cor  =(cormat)[ut],
+    p = pmat[ut]
+    )
+}
+
+make_bold_names <- function(mat, rc_fun, rc_names) {
+  bold_names <- rc_fun(mat)
+  ids <- rc_names %>% match(rc_fun(mat))
+  ids %>%
+    walk(
+      function(i)
+        bold_names[i] <<-
+        bquote(bold(.(rc_fun(mat)[i]))) %>%
+        as.expression()
+    )
+  bold_names
+}
+
+clean_df <- function(df, drop){
+  df = df[,(names(df) %in% drop)]
+  df <- df[!(rownames(df) %in% drop), ]
+  return(df)
+}
+```
+
+
+```{r}
+# Read variant df and keep only Brazzein specific data
+variants_df <- read.csv("/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/1_variants_with_computational_features.csv", check.names = FALSE)
+variants_df <- variants_df[!(variants_df$strain %in% c("ST0099", "ST0110")), ]
+variants_df <- variants_df[variants_df$sweet_protein == "Brazzein", ]
+
+get_corr_mat <- function(input_df, protein){
+  input_df <- input_df[input_df$sweet_protein == protein,]
+  drop = c("sweet_protein", "strain","protein", "plasmid", "mutation", "sequence", "ΔTm", "Z3")
+  input_df = input_df[,!(names(input_df) %in% drop)]
+  corr_mat <- rcorr(as.matrix(input_df), type = "spearman")
+  return(corr_mat)
+}
+
+prep_corr_matrix <- function(input_df, protein = NA){
+  if(!is.na(protein)){
+      input_df <- input_df[input_df$sweet_protein == protein,]
+  }
+  drop = c("sweet_protein", "strain","protein", "plasmid", "mutation", "sequence", "ΔTm", "Z3")
+  input_df = input_df[,!(names(input_df) %in% drop)]
+  
+  # Calculate correlation matrix using Spearman's rank correlation
+  corr_matrix <- rcorr(as.matrix(input_df), type = "spearman")
+  p_values <- data.frame(corr_matrix$P, check.names = FALSE)
+  corr_matrix = data.frame(corr_matrix$r, check.names = FALSE)
+  
+  # Remove expression related features from the rows and keep the columns only
+  drop = c("Tm", "Yield", "OD600", "Growth rate")
+  corr_matrix = corr_matrix[,(names(corr_matrix) %in% drop)]
+  corr_matrix <- corr_matrix[!(rownames(corr_matrix) %in% drop), ]
+  corr_matrix$Group <- NA
+  
+  p_values = p_values[,(names(p_values) %in% drop)]
+  p_values <- p_values[!(rownames(p_values) %in% drop), ]
+  p_values_mat = as.matrix(p_values)
+  p_values_vec = as.vector(p_values_mat)
+  
+  # Combine two vectors and perform BH adjustment for P-values
+  adjusted_pvals <- p.adjust(p_values_vec, method = "BH")
+  adjusted_pvals_mat <- matrix(adjusted_pvals, nrow = nrow(p_values), ncol = ncol(p_values))
+  adjusted_pvals_df <- data.frame(adjusted_pvals_mat, check.names = F)
+  rownames(adjusted_pvals_df) <- rownames(p_values)
+  colnames(adjusted_pvals_df) <- colnames(p_values)
+
+  # List of MODLAMP features
+  modlamp_features <- c("Charge (at pH 7.4)", "Charge density", "Isoelectric point", "Instability index", "Aromaticity","Aliphatic index", "Boman index", "Hydrophobic ratio", "Sidechain bulkiness", "PEPCATS", "Amino acid polarity", "PPCALI", "Number of cysteines", "T-scale")
+  
+  # List of stability predictions 
+  stability_predictions <- c("ΔΔG (Rosetta)", "ΔΔG (DynaMut2)")
+  
+  # List of structural feature columns
+  structural_features <- c("Avg. surface charge", "Avg. surface hbond", "Avg. surface hydrophobicity", "Avg. pLDDT", "Total SASA", "Polar SASA", "Apolar SASA")
+  
+  # Make a group column that defines which type of feature each row represents
+  for (row in 1:nrow(corr_matrix)) {
+      index_name <- row.names(corr_matrix)[row]
+      if(index_name %in% modlamp_features) {
+          corr_matrix[row, "Group"] <- "Sequence features"
+      } else if(index_name %in% stability_predictions) {
+          corr_matrix[row, "Group"] <- "Stability predictors"
+      } else if (index_name %in% structural_features) {
+          corr_matrix[row, "Group"] <- "Structural features"
+      }
+  }
+
+  # Cluster the features within each feature group 
+  # Split dataframe based on group
+  df_list <- split(corr_matrix, corr_matrix$Group)
+  
+  # Perform hierarchical clustering within each group and reorder rows
+  df_reordered <- lapply(df_list, function(sub_df) {
+    
+    # Exclude the group column for clustering
+    data_for_clustering <- sub_df[, -which(names(sub_df) == "Group")]
+    
+    # Perform hierarchical clustering
+    hc <- hclust(dist(data_for_clustering))
+    
+    # Reorder the rows based on clustering
+    sub_df_reordered <- sub_df[hc$order, ]
+    
+    return(sub_df_reordered)
+  })
+  
+  # Combine the reordered dataframes back into a single dataframe
+  corr_matrix <- do.call(rbind, df_reordered)
+  rownames(corr_matrix) <- sub("^[^.]*\\.", "", rownames(corr_matrix))
+  
+  return(list(corr_matrix = corr_matrix, p_values = adjusted_pvals_df, raw_p_values = p_values))
+}
+
+# Create correlation matrices for Brazzein
+corr_res_brazzein = prep_corr_matrix(variants_df, "Brazzein")
+corr_matrix_brazzein = corr_res_brazzein$corr_matrix
+p_values_adj_brazzein = corr_res_brazzein$p_values
+p_values_raw_brazzein = corr_res_brazzein$raw_p_values
+group_column = subset(corr_matrix_brazzein, select = Group)
+corr_matrix_brazzein <- subset(corr_matrix_brazzein, select = -Group)
+
+p_values_adj_brazzein <- p_values_adj_brazzein[row.names(corr_matrix_brazzein), colnames(corr_matrix_brazzein)]
+p_values_raw_brazzein <- p_values_raw_brazzein[row.names(corr_matrix_brazzein), colnames(corr_matrix_brazzein)]
+
+brazzein_sign_corr = corr_matrix_brazzein
+brazzein_sign_corr[p_values_adj_brazzein >= 0.05] = 0.0
+
+corr_matrix_brazzein_raw <- cbind(Variable = rownames(corr_matrix_brazzein), corr_matrix_brazzein)
+p_values_adj_brazzein <- cbind(Variable = rownames(p_values_adj_brazzein), p_values_adj_brazzein)
+
+p_values_adj_brazzein <- p_values_adj_brazzein %>%
+  mutate(across(where(is.numeric), ~ signif(.x, 4)))
+corr_matrix_brazzein_raw <- corr_matrix_brazzein_raw %>%
+  mutate(across(where(is.numeric), ~ signif(.x, 4)))
+
+dir.create("/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Supplementary tables/", recursive=T)
+write_xlsx(corr_matrix_brazzein_raw, "/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Supplementary tables/Brazzein_correlations.xlsx")
+write_xlsx(p_values_adj_brazzein, "/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Supplementary tables/Brazzein_BH_p_vals.xlsx")
+```
+
+
+```{r}
+my_colour = list(
+    Group = c("Sequence features" = "#f89e44", "Stability predictors" = "#e14f67", "Structural features" = "#aa317a")
+)
+threshold = 0.5
+cellsize = 30
+legend_breaks <- seq(from = -1, to = 1, by = 0.001)
+legend_labels = seq(from = -1, to = 1, by = 0.001)
+fontsize = 20
+fontsize_number = 12
+label_fontsize = 15
+plot_width = 10
+plot_height = 12
+tree_height = 20
+
+# Correlation plot for Brazzein
+brazzein_labels <- brazzein_sign_corr
+brazzein_labels <- brazzein_labels %>%
+  mutate(across(everything(), ~ifelse(abs(.) == 0, "", round(., 2))))
+
+brazzein_plot <- pheatmap::pheatmap(
+  fontsize = fontsize,
+  fontsize_number = fontsize_number,
+  mat = as.matrix(corr_matrix_brazzein), 
+  main = "Brazzein",
+  annotation_row = group_column, 
+  annotation_names_row = T,
+  show_rownames = T,
+  annotation_colors = my_colour,
+  labels_row = make_bold_names(corr_matrix_brazzein, rownames, rownames(corr_matrix_brazzein)),
+  labels_col = make_bold_names(corr_matrix_brazzein, colnames, colnames(corr_matrix_brazzein)),
+  cluster_rows = T,
+  cluster_cols = T,
+  cellwidth = cellsize,
+  cellheight = cellsize,
+  breaks = legend_breaks,
+  angle_col = 45,
+  fontsize_row = label_fontsize,
+  fontsize_col = label_fontsize,
+  treeheight_col = tree_height,
+  treeheight_row = 50,
+  fontfamily= "Arial",
+  color=colorRampPalette(c("#aa317a", "white", "#f89e44"))(length(legend_breaks)),
+  border_color = NA,
+  number_color = "black",
+  display_numbers = as.matrix(brazzein_labels),
+  legend = T,
+  annotation_legend = T
+)
+
+g <- grid.arrange(brazzein_plot[[4]], widths = c(0.6, 0.6, 1), padding = unit(0, "line"))
+
+
+dir.create("/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Figures/", recursive=T)
+ggsave("/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Figures/Supplementary_Figure_4.png", brazzein_plot, width = plot_width, height = plot_height)
+```
+
+
+```{r}
+p <- ggplot(variants_df, aes(x = `ΔΔG (Rosetta)`, y = Tm)) +
+    geom_point(size = 3, alpha = 1) +
+    
+    geom_vline(xintercept = 0, color = "black", linetype = "solid", alpha = 1, linewidth = 2) +
+    annotate("segment", 
+             x = -0.75, xend = 0, 
+             y = seq(0, 150, by = 50), yend = seq(0, 150, by = 50), 
+             color = "black", linewidth = 2, alpha = 1) +
+    
+    scale_x_continuous(limits = c(-5, 20), breaks = seq(-5, 20, by = 5), expand = c(0.0, 0.0)) +
+    scale_y_continuous(limits = c(0, 150), breaks = seq(0, 150, by = 50), expand = c(0.0, 0.0)) +
+    
+    labs(title = "Comparison of ΔΔG and Melting Temperature (Tm)", x = "ΔΔG", y = "Tm") +
+    theme_classic(base_size = 20) + 
+    
+    theme(
+      plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+      axis.title = element_text(size = 20, face = "bold"),
+      axis.text = element_text(size = 20, face = "bold"),
+      
+      axis.line.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      
+      axis.line.x = element_line(linewidth = 2),
+      axis.ticks.x = element_line(linewidth = 2),
+      axis.ticks.length = unit(0.35, "cm") 
+    )
+
+ggsave(filename = "/Users/pqh443/Documents/Git_projects/Sweet_Protein_Variants/2_correlation_analyses/2_Figures/Figure_3c.png", 
+       plot = p, 
+       width = 8,       # Adjust the width
+       height = 6,      # Adjust the height
+       units = "in",    # "in", "cm", "mm", or "px"
+       dpi = 300)       # High resolution for presentations/publications
+```
+
+

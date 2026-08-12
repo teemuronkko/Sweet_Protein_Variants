@@ -1,0 +1,41 @@
+protein,protein_id,ddG,delta_tm,dynamut_str,dynamut2_prediction
+Brazzein,Brazzein_ST0100,-0.857,3.895,A H31N,0.41
+Brazzein,Brazzein_ST0116,-0.659,-21.5,A D50Y,-0.61
+Brazzein,Brazzein_ST0097,-0.552,-1.735,A K5R,-0.22
+Brazzein,Brazzein_ST0099,1.0,-0.96,A V13T;A A19S,-1.58
+Brazzein,Brazzein_ST0115,1.34,,A D50L,1.48
+Brazzein,Brazzein_ST0101,1.881,-58.95,A G35A,0.09
+Brazzein,Brazzein_ST0098,2.219,-8.175,A Y8F;A Y11F,-0.17
+Brazzein,Brazzein_ST0103,3.727,-55.28,A K5R;A Y8F;A Y11F;A V13T;A A19S;A H31N;A G35A,
+Brazzein,Brazzein_ST0114,3.777,,A S34C;A Y54C,-0.24
+Brazzein,Brazzein_ST0102,4.278,3.895,A Y8F;A Y11F;A G35A,
+Brazzein,Brazzein_ST0112,5.121,,A V7C;A Q46C,0.72
+Brazzein,Brazzein_ST0109,6.361,-61.8,A A32C,0.03
+Brazzein,Brazzein_ST0106,6.561,,A K15C;A Q21C,-0.49
+Brazzein,Brazzein_ST0110,6.811,-19.475,A R33C;A Y54C,-0.88
+Brazzein,Brazzein_ST0108,7.019,-45.525,A L45C,-0.45
+Brazzein,Brazzein_ST0107,9.305,-16.685,A V13C;A L45C,-1.49
+Brazzein,Brazzein_ST0113,9.313,,A P12C;A K15C,-0.71
+Brazzein,Brazzein_ST0111,9.833,-58.35,A Y8C,0.11
+Brazzein,Brazzein_ST0105,15.517,-8.41,A A32C;A Y51C,-0.26
+Brazzein,Brazzein_ST0104,15.569,-53.72,A Y8C;A Y11C,-0.43
+Thaumatin,thaumatin-II_ST0086,-6.258,10.625,A N104L,-0.57
+Thaumatin,thaumatin-II_ST0091,-2.649,,A A23P,-0.08
+Thaumatin,thaumatin-II_ST0087,-2.43,,A A148P,1.02
+Thaumatin,thaumatin-II_ST0090,-1.619,,A A136P,0.11
+Thaumatin,thaumatin-II_ST0088,-0.356,,A Q153K,0.03
+Thaumatin,thaumatin-II_ST0089,-0.262,,A V184P,0.25
+Thaumatin,Thaumatin_3aok_I65R,-0.088,,,
+Thaumatin,thaumatin-II_ST0084,0.184,,A A207G,-0.42
+Thaumatin,thaumatin-II_ST0077,0.788,,A E89Q,-0.78
+Thaumatin,Thaumatin_3aok_S155D_T160Q,0.843,,,
+Thaumatin,thaumatin-II_ST0076,0.958,,A D60A,-0.22
+Thaumatin,thaumatin-II_ST0079,1.313,-11.32,A N32D,-0.68
+Thaumatin,thaumatin-II_ST0082,1.628,,A I105T,-1.32
+Thaumatin,thaumatin-II_ST0081,1.957,,A T68V,1.81
+Thaumatin,thaumatin-II_ST0078,2.408,-0.21,A A26D,-0.37
+Thaumatin,thaumatin-II_ST0075,7.248,,A A148C;A Y157C,-1.77
+Thaumatin,Thaumatin_3aok_A26D_N32D_I65R_T68V_I105T_S155D_T160Q_A207G,8.001,,,
+Thaumatin,thaumatin-II_ST0074,8.595,,A T68C;A N109C,-3.3
+Thaumatin,Thaumatin_3aok_N104C_F108C,11.373,,,
+Thaumatin,Thaumatin_3aok_N104C-F173C,14.036,,,
