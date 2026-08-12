@@ -1,5 +1,6 @@
 # Sweet proteins designed with increased thermostability
 Veronica Ramos-Viana<sup>1</sup>, Teemu K. E. Rönkkö<sup>2</sup>, Gonzalo Nahuel Bidart<sup>1</sup>, Robby Divine<sup>3</sup>, Ditte Hededam Welner<sup>1</sup>, Alexander S. Hauser<sup>2</sup>, David Baker<sup>3</sup>, Leonie J. Jahn*<sup>1</sup>, Morten O. A. Sommer*<sup>1</sup>
+
 1: The Novo Nordisk Foundation Center for Biosustainability, Technical University of Denmark, Kemitorvet Building 220, 2800 Kongens Lyngby, Denmark
 2: Department of Drug Design and Pharmacology, University of Copenhagen, Universitetsparken 2, 2100 Copenhagen Ø, Denmark
 3: Department of Biochemistry, University of Washington, Seattle, WA 98195, USA. Institute for Protein Design, University of Washington, Seattle, WA 98195, USA
